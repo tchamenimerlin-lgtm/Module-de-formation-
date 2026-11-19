@@ -1,0 +1,631 @@
+import { BarberTool, GuardGuide, HairTextureProfile } from '../types/academy';
+
+export const HAIR_TEXTURES: HairTextureProfile[] = [
+  {
+    code: '3A',
+    name: 'Type 3A — Boucles larges et souples',
+    shortLabel: 'Boucles larges',
+    imageId: 'hair3a3b',
+    caption: 'Fig. 2.1a — Type 3A : boucles en S larges et détendues, brillance naturelle élevée et chute fluide.',
+    presentation:
+      'Le type 3A présente de grandes boucles bien dessinées en forme de S ample, d’un diamètre comparable à celui d’une craie épaisse. La fibre reste souple et reflète facilement la lumière naturelle.',
+    visualAppearance:
+      'Boucles lâches, tombantes, brillance visible, contour du volume souple sans effet nuage compact.',
+    densityAndShrinkage:
+      'Densité généralement faible à moyenne ; rétractation modérée (environ 20 à 30 % entre cheveux mouillés étirés et cheveux secs).',
+    shrinkagePercent: '20 – 30 %',
+    clipperBehavior:
+      'La fibre a tendance à se coucher sous le sabot si le cheveu est trop humide ou mal peigné. Il faut travailler sur cheveux secs ou à peine humidifiés, en multipliant les passages croisés dans le sens inverse de la pousse pour éviter les mèches oubliées.',
+    prepTechniques: [
+      'Démêler délicatement au peigne à dents larges des pointes vers les racines.',
+      'Sécher légèrement au diffuseur ou travailler sur cheveux secs pour mesurer la vraie longueur.',
+      'Identifier précisément le sens d’implantation autour du tourbillon (crown).',
+    ],
+    careAdvice: [
+      'Utiliser des crèmes hydratantes légères ou laits capillaires pour ne pas alourdir la boucle.',
+      'Privilégier un shampoing doux sans sulfates agressifs 1 à 2 fois par semaine.',
+      'Éviter le brossage à sec qui casse la définition et crée des frisottis.',
+    ],
+  },
+  {
+    code: '3B',
+    name: 'Type 3B — Boucles définies et ressorts toniques',
+    shortLabel: 'Boucles définies',
+    imageId: 'hair3a3b',
+    caption: 'Fig. 2.1b — Type 3B : boucles élastiques de diamètre marqueur, volume dynamique sur le dessus.',
+    presentation:
+      'Le type 3B se caractérise par des boucles élastiques plus serrées que le 3A, d’un diamètre proche d’un feutre ou d’un doigt. La chevelure offre davantage de volume dès la racine.',
+    visualAppearance:
+      'Spirales nettes et rebondissantes, texture plus dense visuellement, tendance aux frisottis en milieu humide.',
+    densityAndShrinkage:
+      'Densité moyenne à élevée ; rétractation sensible de 30 à 45 % au séchage.',
+    shrinkagePercent: '30 – 45 %',
+    clipperBehavior:
+      'Les boucles accrochent bien les dents du sabot, mais la rétractation peut tromper un débutant : une coupe réalisée trop court sur cheveux étirés paraîtra soudainement plus courte une fois sèche. Maintenir une tension régulière au peigne.',
+    prepTechniques: [
+      'Humidifier légèrement au vaporisateur uniquement pour démêler, puis tamponner à la serviette.',
+      'Soulever le volume avec un peigne afro avant tout travail à main levée (freehand).',
+      'Repérer les changements de direction derrière les oreilles et sur la nuque.',
+    ],
+    careAdvice: [
+      'Hydrater avec un leave-in (soin sans rinçage) et sceller avec quelques gouttes d’huile légère (jojoba ou pépins de raisin).',
+      'Dormir avec une taie d’oreiller en satin ou un bonnet satin pour limiter la friction.',
+      'Rafraîchir les boucles le matin avec un peu d’eau tiède et de crème définissante.',
+    ],
+  },
+  {
+    code: '3C',
+    name: 'Type 3C — Boucles serrées en tire-bouchon',
+    shortLabel: 'Boucles serrées',
+    imageId: 'hair3c',
+    caption: 'Fig. 2.2 — Type 3C : tire-bouchons serrés de diamètre crayon, masse dense idéale pour les fades contrastés.',
+    presentation:
+      'Le type 3C se situe à la charnière entre le bouclé et le crépu. Ses boucles en tire-bouchon très serrées ont la circonférence d’un crayon ou d’une paille et créent une masse volumineuse et structurée.',
+    visualAppearance:
+      'Grappes de boucles compactes, forte présence visuelle, contours très nets lorsque la coupe est fraîche.',
+    densityAndShrinkage:
+      'Densité souvent forte ; rétractation importante comprise entre 45 et 60 %.',
+    shrinkagePercent: '45 – 60 %',
+    clipperBehavior:
+      'Excellente tenue sous la tondeuse : le cheveu se dresse naturellement face à la lame, ce qui permet des dégradés très propres. En revanche, une lame émoussée ou non huilée tire immédiatement dans la masse.',
+    prepTechniques: [
+      'Brosser dans le sens de pousse pour les coupes courtes (Waves / Buzz) ou décoller au peigne afro pour un volume haut.',
+      'Travailler sur cheveux parfaitement secs pour les dégradés précis.',
+      'Vérifier la propreté du cuir chevelu (absence d’accumulation de cire ou de gel).',
+    ],
+    careAdvice: [
+      'Appliquer la méthode LOC (Liquide, Huile, Crème) pour retenir durablement l’hydratation.',
+      'Utiliser une éponge à twists ou une brosse souple selon la coiffure souhaitée.',
+      'Faire un masque nourrissant toutes les deux semaines.',
+    ],
+  },
+  {
+    code: '4A',
+    name: 'Type 4A — Cheveux crépus avec boucles en S',
+    shortLabel: 'Crépus en S',
+    imageId: 'hair4a',
+    caption: 'Fig. 2.3 — Type 4A : petites spires serrées en forme de S, élasticité nette et belle tenue de forme.',
+    presentation:
+      'Premier degré de la famille crépue, le type 4A forme de minuscules boucles en S serrées (diamètre d’un crochet fin), visibles à l’œil nu même sans produit coiffant.',
+    visualAppearance:
+      'Grain fin et régulier, ressorts miniatures compacts, finition veloutée qui capte magnifiquement les lignes de dégradé.',
+    densityAndShrinkage:
+      'Densité moyenne à très forte ; rétractation élevée de 55 à 70 %.',
+    shrinkagePercent: '55 – 70 %',
+    clipperBehavior:
+      'Texture très agréable à dégrader si le cheveu est bien préparé : brosser entre chaque passage pour coucher ou redresser uniformément la fibre. Ne jamais forcer la tondeuse dans la masse sèche non démêlée.',
+    prepTechniques: [
+      'Décoller toute la masse au peigne afro si l’on conserve du volume sur le dessus.',
+      'Pour une coupe courte ou des waves, brosser vigoureusement mais sans irriter dans le sens de pousse.',
+      'Appliquer un léger brouillard d’eau + séchage rapide si les cheveux sont écrasés par un bonnet.',
+    ],
+    careAdvice: [
+      'Hydrater régulièrement avec un beurre végétal léger (karité fouetté) ou une crème riche.',
+      'Limiter les sources de chaleur directe sans protecteur thermique.',
+      'Protéger la chevelure la nuit (durag pour coupes courtes, bonnet satin pour afro).',
+    ],
+  },
+  {
+    code: '4B',
+    name: 'Type 4B — Cheveux crépus avec angles en Z',
+    shortLabel: 'Crépus en Z',
+    imageId: 'hair4b',
+    caption: 'Fig. 2.4 — Type 4B : fibres pliées en Z à texture cotonneuse, rétractation forte et volume sculptable.',
+    presentation:
+      'Au lieu de s’enrouler en boucle ronde régulière, la fibre 4B se plie avec des angles marqués en forme de Z. Elle offre un toucher doux, cotonneux et une formidable aptitude à être sculptée.',
+    visualAppearance:
+      'Aspect mat, dense, duveteux ou compact selon l’hydratation ; structure homogène sans mèches tombantes.',
+    densityAndShrinkage:
+      'Densité variable (souvent trompeuse par le volume visuel) ; rétractation très importante de 65 à 75 %.',
+    shrinkagePercent: '65 – 75 %',
+    clipperBehavior:
+      'La fibre 4B se laisse couper avec une précision chirurgicale en freehand (coupe à main levée). En revanche, elle peut se tasser en plaques si elle n’est pas peignée et relevée avant chaque passage de sabot.',
+    prepTechniques: [
+      'Peigner systématiquement avec un peigne afro à dents rigides pour libérer tous les nœuds en racine.',
+      'Sécher au sèche-cheveux tiède avec peigne détendeur uniquement si le client souhaite un afro parfaitement uniforme.',
+      'Travailler par couches fines pour éviter de créer des trous dans la couronne.',
+    ],
+    careAdvice: [
+      'Privilégier des crèmes riches et huiles pénétrantes (ricin, avocat, karité) car le sébum migre difficilement le long des angles en Z.',
+      'Manipuler avec douceur : les angles en Z sont des points mécaniques de fragilité.',
+      'Couper les pointes sèches toutes les 6 à 8 semaines pour garder une silhouette nette.',
+    ],
+  },
+  {
+    code: '4C',
+    name: 'Type 4C — Cheveux très crépus à spires serrées',
+    shortLabel: 'Très crépus 4C',
+    imageId: 'hair4c',
+    caption: 'Fig. 2.5 — Type 4C : spires microscopiques ultra-denses, rétractation supérieure à 75 % et précision architecturale.',
+    presentation:
+      'Le type 4C est la texture la plus serrée du spectre afro. Ses spires microscopiques ne forment pas de boucle lâche sans coiffage manuel, mais procurent un volume architectural incomparable et les contours les plus nets du barbering.',
+    visualAppearance:
+      'Texture dense, veloutée, mate et uniforme ; permet des dégradés à blanc spectaculaires et des lignes géométriques d’une extrême netteté.',
+    densityAndShrinkage:
+      'Densité visuellement très riche, mais fibre parfois fine et délicate ; rétractation maximale de 75 à 85 %.',
+    shrinkagePercent: '75 – 85 %',
+    clipperBehavior:
+      'Exige des lames parfaitement affûtées, propres et lubrifiées ainsi qu’un moteur puissant (rotatif ou magnétique). Brosser continuellement avec une brosse de dégradé (fade brush) pendant le dégradé pour révéler les vraies zones sombres.',
+    prepTechniques: [
+      'Inspecter le cuir chevelu pour détecter les zones sensibles ou les poils incarnés (PFB).',
+      'Relever les cheveux au peigne afro avant de couper le dessus, ou brosser à plat pour les coupes courtes.',
+      'Éviter d’appliquer des pommades lourdes avant la coupe : elles encrassent les lames et faussent le dégradé.',
+    ],
+    careAdvice: [
+      'Hydrater quotidiennement ou tous les deux jours avec eau + crème nourrissante + huile scellante.',
+      'Ne jamais démêler à sec de façon brutale ; travailler sur cheveux humidifiés et lubrifiés.',
+      'Prévenir les poils incarnés sur la nuque et la barbe en évitant un rasage trop agressif à rebrousse-poil.',
+    ],
+  },
+];
+
+export const SCALP_AND_HAIR_CONCEPTS = [
+  {
+    title: 'Densité capillaire',
+    summary:
+      'Nombre de cheveux par centimètre carré sur le cuir chevelu (faible, moyenne ou forte). Elle diffère souvent entre les tempes, le dessus et l’occiput.',
+    barberImpact:
+      'Une faible densité sur les tempes impose d’utiliser un sabot plus long d’un demi-cran pour éviter de créer un trou visuel (zone claire trop haute).',
+  },
+  {
+    title: 'Épaisseur de la fibre (calibre)',
+    summary:
+      'Diamètre individuel de chaque cheveu (fin, moyen ou épais). Un client peut avoir une forte densité avec des cheveux fins.',
+    barberImpact:
+      'Les fibres fines marquent très vite la ligne de démarcation et réclament un travail délicat sur les coins de la lame ; les fibres épaisses exigent un moteur puissant et des passages répétés.',
+  },
+  {
+    title: 'Porosité',
+    summary:
+      'Capacité de la cuticule à absorber et retenir l’eau (faible, moyenne ou forte porosité).',
+    barberImpact:
+      'Un cheveu très poreux absorbe instantanément l’eau et les produits puis sèche vite ; un cheveu peu poreux laisse l’eau perler en surface et réclame de l’eau tiède et des soins légers.',
+  },
+  {
+    title: 'Direction de pousse',
+    summary:
+      'Angle naturel selon lequel les cheveux sortent du follicule. Sur la tête, la pousse rayonne depuis le tourbillon (crown) et change souvent sur la nuque et les tempes.',
+    barberImpact:
+      'Couper dans le sens de pousse enlève moins de matière (indispensable pour les Waves 360) ; couper à contre-sens uniformise la longueur dans un dégradé.',
+  },
+  {
+    title: 'Épis et tourbillons (Cowlicks)',
+    summary:
+      'Zones localisées où les cheveux poussent en spirale ou à contre-courant du reste de la chevelure (souvent sur la ligne frontale, le vertex ou la nuque).',
+    barberImpact:
+      'Ne jamais couper un épi trop court sans prévenir le client : un cheveu court sur un épi se dresse immédiatement. Adapter l’angle de la tondeuse dans plusieurs directions.',
+  },
+  {
+    title: 'Zones sensibles du cuir chevelu',
+    summary:
+      'Nuque basse, contour des oreilles, angles des tempes et grains de beauté ou plis cutanés occipitaux (cutis verticis gyrata).',
+    barberImpact:
+      'Tendre délicatement la peau avec la main libre, réduire la pression de la lame, éviter le rasage trop appuyé chez les clients sujets aux boutons de rasage (folliculite / PFB).',
+  },
+  {
+    title: 'Cheveux naturels, courts ou en repousse',
+    summary:
+      'Un afro long demande un travail de volume et de silhouette (peigne afro + freehand), un cheveu court demande rigueur géométrique et brossage, et une repousse (3 à 6 semaines) demande de reconstruire toute l’architecture du fade.',
+    barberImpact:
+      'Toujours diagnostiquer l’historique de coupe du client avant d’allumer la tondeuse pour corriger d’éventuelles asymétries héritées de la coupe précédente.',
+  },
+];
+
+export const CLIPPER_VS_TRIMMER_VS_SHAVER = [
+  {
+    tool: 'Clipper (Tondeuse de coupe)',
+    bladeDesign: 'Lame large (45 mm) avec levier latéral réglable et dents épaisses compatibles avec sabots.',
+    cutRange: '0,5 mm à 25 mm (avec sabots #0.5 à #8).',
+    primaryRole: 'Débroussailler la masse, créer la structure de la coupe et réaliser les transitions de dégradé.',
+    neverUseFor: 'Raser intégralement à blanc comme un rasoir ou dessiner des motifs très fins.',
+  },
+  {
+    tool: 'Trimmer (Tondeuse de finition)',
+    bladeDesign: 'Lame en T (T-Blade) fine et exposée, réglée très proche du zéro (sans levier latéral).',
+    cutRange: '0,1 mm à 0,4 mm.',
+    primaryRole: 'Tracer la ligne de base du fade, dessiner les contours (line-up), nettoyer la nuque et sculpter la barbe.',
+    neverUseFor: 'Couper une grosse masse d’afro épais (surchauffe et bourrage immédiat).',
+  },
+  {
+    tool: 'Shaver (Rasoir électrique à grilles)',
+    bladeDesign: 'Grilles métalliques hypoallergéniques ultra-fines (or ou titane) recouvrant des lames oscillantes.',
+    cutRange: '0,0 mm (peau totalement lisse).',
+    primaryRole: 'Blanchir la partie basse d’un Skin Fade ou Bald Fade et lisser le cou après le trimmer.',
+    neverUseFor: 'Passer sur des cheveux de plus de 1 mm ou appuyer fort sur une peau irritée.',
+  },
+];
+
+export const BARBER_TOOLS: BarberTool[] = [
+  {
+    id: 'clipper',
+    number: 1,
+    name: 'Tondeuse de coupe (Clipper)',
+    englishName: 'Clipper',
+    category: 'Machines',
+    imageId: 'toolsKit',
+    caption: 'Fig. 3.1a — Tondeuse de coupe professionnelle sans fil munie de son levier latéral.',
+    purpose: 'Outil principal du barbier : retire la masse, uniformise la longueur avec les sabots et construit les nuances du dégradé grâce au levier.',
+    howToHold: 'Prise ferme mais souple dans la paume, pouce positionné naturellement sur le levier latéral pour ajuster l’ouverture en un geste sans quitter la tête.',
+    howToUse: 'Poser le talon de la lame à plat sur le crâne pour retirer la masse, puis relever le poignet en mouvement en C (C-motion) pour fondre les transitions.',
+    mistakesToAvoid: [
+      'Appuyer trop fort la lame contre le cuir chevelu et creuser une ligne profonde.',
+      'Oublier de refermer ou de vérifier la position du levier avant de changer de zone.',
+      'Travailler avec une lame chaude ou mal alignée.',
+    ],
+    maintenanceAndDisinfection: 'Brosser les cheveux après chaque client, pulvériser un spray désinfectant-refroidissant (type Clippercide), essuyer puis appliquer 3 gouttes d’huile sur les dents en marche.',
+  },
+  {
+    id: 'trimmer',
+    number: 2,
+    name: 'Tondeuse de finition (Trimmer)',
+    englishName: 'Detailer / Trimmer',
+    category: 'Machines',
+    imageId: 'techniqueLineup',
+    caption: 'Fig. 3.1b — Trimmer à lame T-Blade squelette pour contours millimétrés et ligne de base.',
+    purpose: 'Dessine les contours frontaux (line-up), tempes, tour d’oreilles, nuque, contours de barbe et crée la ligne zéro initiale des dégradés à blanc.',
+    howToHold: 'Prise légère façon stylo ou pince entre le pouce, l’index et le majeur, avec l’auriculaire en appui délicat sur le front ou la joue pour stabiliser la main.',
+    howToUse: 'Tapoter légèrement (tapping) la ligne frontale avec la lame inversée sans appuyer, puis utiliser uniquement les coins de la lame T-Blade autour des courbes de l’oreille.',
+    mistakesToAvoid: [
+      'Régler la lame au zéro absolu (zero-gap excessif) au risque de couper ou brûler la peau.',
+      'Traîner la lame sous forte pression sur le front, provoquant des rougeurs et irritations.',
+      'Utiliser le trimmer pour dégrossir des cheveux longs.',
+    ],
+    maintenanceAndDisinfection: 'Dépoussiérer méticuleusement sous la lame exposée, désinfecter au spray bactéricide/fongicide pendant le temps de pose recommandé, puis huiler légèrement.',
+  },
+  {
+    id: 'shaver',
+    number: 3,
+    name: 'Rasoir électrique à grilles (Shaver)',
+    englishName: 'Foil Shaver',
+    category: 'Machines',
+    imageId: 'toolsKit',
+    caption: 'Fig. 3.1c — Shaver double grille dorée dédié aux finitions à blanc (Skin / Bald Fade).',
+    purpose: 'Offre un rasage à blanc (0,0 mm) parfaitement lisse dans la zone inférieure d’un Skin Fade ou Bald Fade et sur les contours du cou.',
+    howToHold: 'Saisie légère par les côtés du boîtier afin que le poids propre de la machine suffise sans jamais écraser les grilles sur la peau.',
+    howToUse: 'Toujours préparer la zone au trimmer d’abord (poil inférieur à 0,5 mm). Effectuer de courts mouvements descendants ou ascendants très doux en s’arrêtant 5 mm sous la ligne du trimmer, puis tapoter en sortant (flick) pour éviter toute marque.',
+    mistakesToAvoid: [
+      'Passer le shaver sur des cheveux trop longs (arrache le poil et abîme la grille).',
+      'Monter au-dessus de la ligne du trimmer et créer une barre impossible à fondre.',
+      'Appuyer sur une peau sensible sujette aux boutons de rasage.',
+    ],
+    maintenanceAndDisinfection: 'Retirer la tête à grilles après chaque coupe, vider les résidus, brosser les couteaux sans toucher violemment la feuille métallique, vaporiser du désinfectant et laisser sécher à l’air libre.',
+  },
+  {
+    id: 'straight-razor',
+    number: 4,
+    name: 'Rasoir à lame interchangeable (Shavette)',
+    englishName: 'Straight Razor / Shavette',
+    category: 'Lames & Ciseaux',
+    imageId: 'techniqueLineup',
+    caption: 'Fig. 3.1d — Porte-lame professionnel à demi-lame jetable stérile pour finitions chirurgicales.',
+    purpose: 'Sublime la précision des contours (line-up), nettoie parfaitement le duvet frontal, les joues, la nuque et réalise les raies nettes (hard part).',
+    howToHold: 'Pouce sur la soie inférieure, index, majeur et annulaire sur la tige supérieure, auriculaire calé sur le crochet (tang) ; la châsse reste ouverte à 270°.',
+    howToUse: 'Toujours travailler sur peau préparée (gel de rasage transparent ou mousse) avec la peau tendue dans le sens opposé par la main libre, et maintenir un angle plat d’environ 30 degrés.',
+    mistakesToAvoid: [
+      'Réutiliser une demi-lame sur un autre client (interdit absolu d’hygiène).',
+      'Tenir la lame trop verticale (angle > 45°), ce qui provoque entailles et feu du rasoir.',
+      'Raser à sec sans lubrifiant ni tension cutanée.',
+    ],
+    maintenanceAndDisinfection: 'Éjecter la lame usagée dans un collecteur rigide DASRI immédiatement après usage, puis immerger le porte-lame nettoyé dans une solution désinfectante homologuée (type Barbicide).',
+  },
+  {
+    id: 'straight-shears',
+    number: 5,
+    name: 'Ciseaux droits de coupe',
+    englishName: 'Straight Shears',
+    category: 'Lames & Ciseaux',
+    imageId: 'toolsKit',
+    caption: 'Fig. 3.1e — Ciseaux ergonomiques en acier japonais pour finitions sur le dessus et travail sur peigne.',
+    purpose: 'Permettent d’égaliser les pointes sur cheveux bouclés 3A–3C, de raccourcir un afro long en douceur et d’effectuer la technique ciseaux-sur-peigne (shear over comb).',
+    howToHold: 'Annulaire dans l’anneau muni du repose-doigt, pouce légèrement inséré dans le second anneau (uniquement la phalange distale). Seul le pouce bouge ; la lame supérieure reste fixe.',
+    howToUse: 'Travailler sur mèches propres maintenues entre l’index et le majeur ou posées sur un peigne de coupe. Couper toujours parallèlement ou en piquetage selon la texture.',
+    mistakesToAvoid: [
+      'Enfoncer le pouce jusqu’à la base dans l’anneau (perte totale de contrôle et fatigue).',
+      'Couper le papier, du ruban ou des cheveux sales chargés de poussière.',
+      'Poser les ciseaux ouverts sur le comptoir.',
+    ],
+    maintenanceAndDisinfection: 'Essuyer les lames avec un chiffon doux, désinfecter au spray ou par trempage adapté, sécher immédiatement et placer une goutte d’huile sur la vis centrale.',
+  },
+  {
+    id: 'thinning-shears',
+    number: 6,
+    name: 'Ciseaux sculpteurs (crantés)',
+    englishName: 'Thinning / Blending Shears',
+    category: 'Lames & Ciseaux',
+    imageId: 'toolsKit',
+    caption: 'Fig. 3.1f — Ciseaux crantés pour adoucir les zones de poids et fondre les transitions sur textures 3A–3C.',
+    purpose: 'Allègent une zone trop dense (ligne de poids pariétale) et adoucissent une transition entre les côtés dégradés et un dessus bouclé sans raccourcir la longueur globale.',
+    howToHold: 'Même tenue ergonomique que les ciseaux droits, lame crantée orientée selon le contrôle souhaité, pouce mobile unique.',
+    howToUse: 'Utiliser avec parcimonie sur les pointes ou à mi-longueur sur textures 3A à 3C, ou en ciseaux-sur-peigne pour effacer une démarcation tenace.',
+    mistakesToAvoid: [
+      'Effiler près de la racine sur cheveux afro 4A–4C (crée des repousses hérissées et des trous).',
+      'Multiplier les coups de ciseaux au même endroit.',
+      'S’en servir à la place d’un vrai dégradé progressif à la tondeuse.',
+    ],
+    maintenanceAndDisinfection: 'Nettoyer soigneusement entre les dents à l’aide d’une brossette, désinfecter, sécher parfaitement et huiler le pivot.',
+  },
+  {
+    id: 'cutting-comb',
+    number: 7,
+    name: 'Peigne de coupe (Clipper Comb)',
+    englishName: 'Cutting / Taper Comb',
+    category: 'Peignes & Brosses',
+    imageId: 'toolsKit',
+    caption: 'Fig. 3.1g — Peigne droit carbone à double denture (dents larges et fines) pour clipper-over-comb.',
+    purpose: 'Sert à guider la tondeuse dans la technique tondeuse-sur-peigne (clipper over comb), à séparer les zones et à contrôler la régularité des longueurs.',
+    howToHold: 'Tenu entre le pouce et l’index à plat, tranche dorsale stable ; utiliser un peigne clair pour cheveux foncés afin de voir le contraste des cheveux qui dépassent.',
+    howToUse: 'Glisser le peigne dans la chevelure avec l’angle d’inclinaison désiré, puis faire glisser la lame de la tondeuse à plat sur le dos du peigne sans bouger ce dernier.',
+    mistakesToAvoid: [
+      'Incliner involontairement le peigne vers l’intérieur et creuser la couronne.',
+      'Utiliser un peigne tordu ou aux dents cassées qui accroche le cheveu afro.',
+    ],
+    maintenanceAndDisinfection: 'Retirer tous les cheveux, laver à l’eau chaude savonneuse, rincer puis immerger 10 minutes dans le bocal désinfectant (Barbicide) avant séchage sur serviette propre.',
+  },
+  {
+    id: 'afro-pick',
+    number: 8,
+    name: 'Peigne afro (Afro Pick)',
+    englishName: 'Afro Pick',
+    category: 'Peignes & Brosses',
+    imageId: 'toolsKit',
+    caption: 'Fig. 3.1h — Peigne afro à dents longues et espacées pour décoller et uniformiser les volumes crépus.',
+    purpose: 'Décolle les racines des cheveux 3C à 4C sans casser les boucles, révèle la véritable forme de l’afro avant la coupe et uniformise le volume avant le freehand.',
+    howToHold: 'Saisie par le manche large, poignet souple permettant un mouvement de levée verticale.',
+    howToUse: 'Insérer délicatement les dents près de la racine et soulever vers l’extérieur par petits à-coups sans jamais tirer brutalement jusqu’aux pointes emmêlées.',
+    mistakesToAvoid: [
+      'Arracher les nœuds en partant de la racine sur cheveux secs non démêlés.',
+      'Oublier de peigner les côtés et l’arrière avant d’égaliser la forme.',
+    ],
+    maintenanceAndDisinfection: 'Nettoyer à l’eau savonneuse et désinfecter par immersion complète entre chaque client.',
+  },
+  {
+    id: 'fade-brush',
+    number: 9,
+    name: 'Brosse de dégradé (Fade Brush)',
+    englishName: 'Fade / Boar Bristle Brush',
+    category: 'Peignes & Brosses',
+    imageId: 'toolsKit',
+    caption: 'Fig. 3.1i — Brosse de dégradé en poils de sanglier souples/médiums pour lire les ombres du fade.',
+    purpose: 'Élimine en temps réel les cheveux coupés durant le dégradé, plaque la fibre dans son sens naturel de pousse et dévoile immédiatement les zones sombres à retravailler.',
+    howToHold: 'Maintenue dans la main faible en alternance fluide avec le peigne pour brosser toutes les 3 à 4 passes de tondeuse.',
+    howToUse: 'Brosser toujours dans le sens naturel de pousse du client, avec une pression douce qui ne rougit pas le cuir chevelu.',
+    mistakesToAvoid: [
+      'Utiliser une brosse aux poils trop durs sur une peau fraîchement rasée au shaver.',
+      'Enchaîner dix passages de tondeuse sans brosser entre-temps (lecture visuelle faussée).',
+    ],
+    maintenanceAndDisinfection: 'Enlever les cheveux coincés avec un peigne fin, laver au savon doux, vaporiser un spray désinfectant spécifique pour brosses et faire sécher poils vers le bas.',
+  },
+  {
+    id: 'neck-duster',
+    number: 10,
+    name: 'Brosse de nettoyage (Blaireau / Neck Duster)',
+    englishName: 'Neck Duster Brush',
+    category: 'Peignes & Brosses',
+    imageId: 'heroStation',
+    caption: 'Fig. 3.1j — Brosse douce de dépoussiérage pour le cou, les oreilles et le visage du client.',
+    purpose: 'Retire délicatement les petits cheveux coupés sur le front, le cou, derrière les oreilles et sur la cape pour le confort immédiat du client.',
+    howToHold: 'Saisie par le manche court ou ergonomique, geste ample et léger.',
+    howToUse: 'Effectuer des balayages doux de haut en bas, éventuellement accompagnés d’un soupçon de talc ou de poudre de finition pour absorber l’humidité de la peau.',
+    mistakesToAvoid: [
+      'Passer une brosse humide ou sale sur le visage d’un client.',
+      'Partager la brosse sans désinfection sur une peau présentant des micro-coupures.',
+    ],
+    maintenanceAndDisinfection: 'Secouer, laver régulièrement au shampoing doux, désinfecter au spray entre chaque client ou privilégier des serviettes jetables/propres pour les zones rasées.',
+  },
+  {
+    id: 'barber-cape',
+    number: 11,
+    name: 'Cape de coiffure et bande de cou',
+    englishName: 'Barber Cape & Neck Strip',
+    category: 'Accessoires & Hygiène',
+    imageId: 'styleLocsTwists',
+    caption: 'Fig. 3.1k — Cape professionnelle antistatique toujours isolée de la peau par une bande papier jetable.',
+    purpose: 'Protège les vêtements du client contre les cheveux coupés, l’eau et les produits tout en offrant une présentation professionnelle impeccable.',
+    howToHold: 'Toujours poser d’abord la bande de cou papier extensible autour du cou, fixer la cape par-dessus, puis rabattre le bord de la bande papier sur le col de la cape.',
+    howToUse: 'Vérifier que la fermeture n’étrangle pas le client et que la nuque reste suffisamment dégagée pour travailler librement.',
+    mistakesToAvoid: [
+      'Mettre la cape directement au contact de la peau du cou sans bande de cou jetable (risque d’infection croisée).',
+      'Laisser la cape tomber sur les pieds ou traîner sur le sol.',
+    ],
+    maintenanceAndDisinfection: 'Secouer loin des postes, changer de cape après chaque client ou laver à haute température (60 °C) quotidiennement.',
+  },
+  {
+    id: 'spray-bottle',
+    number: 12,
+    name: 'Vaporisateur à brume fine',
+    englishName: 'Continuous Mist Spray Bottle',
+    category: 'Accessoires & Hygiène',
+    imageId: 'heroStation',
+    caption: 'Fig. 3.1l — Vaporisateur brumisateur pour humidifier sans détremper lors du démêlage ou des twists.',
+    purpose: 'Diffuse une micro-brume homogène pour assouplir les cheveux afro avant le démêlage, réactiver les boucles ou préparer un travail aux ciseaux.',
+    howToHold: 'Prise ergonomique à une main, buse maintenue à 15–20 cm de la tête.',
+    howToUse: 'Brumiser légèrement par zones, en protégeant toujours les yeux et le visage du client avec l’autre main.',
+    mistakesToAvoid: [
+      'Détremper les cheveux juste avant un dégradé à la tondeuse (les cheveux collent à la peau et bloquent les lames).',
+      'Laisser de l’eau stagnante plusieurs jours dans le flacon.',
+    ],
+    maintenanceAndDisinfection: 'Vider chaque soir, rincer à l’eau chaude savonneuse et renouveler l’eau propre quotidiennement.',
+  },
+  {
+    id: 'hair-dryer',
+    number: 13,
+    name: 'Sèche-cheveux professionnel',
+    englishName: 'Blow Dryer',
+    category: 'Accessoires & Hygiène',
+    imageId: 'heroStation',
+    caption: 'Fig. 3.1m — Sèche-cheveux à embout concentrateur ou peigne pour sécher, étirer ou chasser les cheveux coupés.',
+    purpose: 'Sèche rapidement après lavage, détend légèrement la fibre afro (blow-out) lorsque nécessaire pour une coupe uniforme, et sert en air froid à souffler les résidus fins.',
+    howToHold: 'Main dominante sur la poignée, réglage température sur tiède ou froid pour éviter toute brûlure du cuir chevelu.',
+    howToUse: 'Maintenir le flux d’air en mouvement constant à 10–15 cm de la tête ; associer à un peigne large pour un blow-out doux sur texture 4B–4C.',
+    mistakesToAvoid: [
+      'Diriger l’air brûlant de façon fixe sur le cuir chevelu ou les oreilles du client.',
+      'Laisser le filtre arrière bouché par la poussière (surchauffe du moteur).',
+    ],
+    maintenanceAndDisinfection: 'Nettoyer le filtre arrière chaque semaine et essuyer le boîtier et les embouts au lingette désinfectante.',
+  },
+  {
+    id: 'finishing-powder',
+    number: 14,
+    name: 'Poudre de finition et talc apaisant',
+    englishName: 'Talc / Finishing Powder',
+    category: 'Accessoires & Hygiène',
+    imageId: 'heroStation',
+    caption: 'Fig. 3.1n — Poudre fine absorbante pour assécher la peau, révéler les micro-cheveux et apaiser le cou.',
+    purpose: 'Absorbe la transpiration sur le front et les tempes avant le line-up (pour que le trimmer glisse sans accrocher) et facilite le balayage final des cheveux sur la nuque.',
+    howToHold: 'Saupoudrer d’abord sur la brosse de nettoyage ou sur un mouchoir propre plutôt que directement en nuage sur le visage.',
+    howToUse: 'Tamponner une infime quantité sur la ligne frontale avant le tracé, puis essuyer l’excédent au terme de la coupe.',
+    mistakesToAvoid: [
+      'En mettre trop et étouffer le client dans un nuage de poudre.',
+      'Utiliser de la poudre sur une micro-coupure ouverte.',
+    ],
+    maintenanceAndDisinfection: 'Refermer systématiquement le flacon, nettoyer l’extérieur et privilégier des formules sans amiante (amidon de maïs ou talc cosmétique purifié).',
+  },
+  {
+    id: 'blades-guards',
+    number: 15,
+    name: 'Lames, sabots et accessoires de réglage',
+    englishName: 'Blades, Guards & Zero-Gap Tools',
+    category: 'Accessoires & Hygiène',
+    imageId: 'toolsKit',
+    caption: 'Fig. 3.1o — Jeu complet de sabots premium à clip métallique (#0.5 à #8) et têtes de coupe de rechange.',
+    purpose: 'Les sabots fixent une hauteur de coupe reproductible au millimètre ; les lames (Fade Blade plate vs Taper Blade striée) déterminent la précision et le confort du dégradé.',
+    howToHold: 'Clipser toujours le sabot par l’avant de la lame puis verrouiller fermement l’ergot arrière jusqu’au clic audible.',
+    howToUse: 'Inspecter les dents des sabots avant chaque pose : un sabot fissuré ou mal clipsé peut se détacher en pleine coupe et créer un trou irréversible.',
+    mistakesToAvoid: [
+      'Mélanger des sabots de marques incompatibles qui flottent sur la tête de coupe.',
+      'Négliger le remplacement d’une lame émoussée qui tire les cheveux crépus.',
+    ],
+    maintenanceAndDisinfection: 'Laver et désinfecter les sabots par immersion complète dans la solution désinfectante entre chaque client, puis les ranger ordonnés sur un support dédié.',
+  },
+  {
+    id: 'disinfectants',
+    number: 16,
+    name: 'Désinfectants et produits d’hygiène',
+    englishName: 'Disinfectants & Sanitation Kit',
+    category: 'Accessoires & Hygiène',
+    imageId: 'heroStation',
+    caption: 'Fig. 3.1p — Bocal Barbicide, spray désinfectant 5-en-1, alcool 70°, gel hydroalcoolique et boîte DASRI.',
+    purpose: 'Garantissent la sécurité sanitaire absolue du salon en éliminant bactéries, champignons (teigne) et virus transmissibles par le sang ou le cuir chevelu.',
+    howToHold: 'Respecter scrupuleusement les dosages fabricants (ex. dilution Barbicide) et les temps de contact (généralement 10 minutes d’immersion).',
+    howToUse: 'Appliquer un protocole systématique après chaque client : nettoyage mécanique (retrait des cheveux) → désinfection → séchage → rangement en zone propre.',
+    mistakesToAvoid: [
+      'Plonger des peignes pleins de cheveux dans le bocal désinfectant (désactive la solution).',
+      'Oublier de renouveler le bain désinfectant quotidiennement ou dès qu’il se trouble.',
+      'Utiliser de l’alcool pur seul à la place d’un désinfectant fongicide et virucide.',
+    ],
+    maintenanceAndDisinfection: 'Stocker les produits fermés hors de portée, étiqueter les dates de renouvellement et utiliser un collecteur rigide fermé pour toutes les lames usagées.',
+  },
+];
+
+export const GUARD_GUIDES: GuardGuide[] = [
+  {
+    code: '0',
+    numericValue: 0,
+    label: 'Sans sabot (0)',
+    mmClosed: 0.5,
+    mmOpen: 1.5,
+    inches: '1/50" – 1/16"',
+    primaryUse: 'Ligne de base initiale, nettoyage des zones basses et effacement de la ligne du trimmer.',
+    fadeRole: 'Base du dégradé (levier fermé = 0,5 mm ; levier ouvert = ~1,5 mm, équivalent au sabot 0.5 fermé).',
+  },
+  {
+    code: '0.5',
+    numericValue: 0.5,
+    label: 'Demi-sabot 0.5',
+    mmClosed: 1.5,
+    mmOpen: 2.5,
+    inches: '1/16"',
+    primaryUse: 'Effacement chirurgical de la ligne entre le sans-sabot ouvert et le sabot #1.',
+    fadeRole: 'Indispensable sur cheveux afro pour obtenir une transition grise sans barre visible.',
+  },
+  {
+    code: '1',
+    numericValue: 1,
+    label: 'Sabot #1',
+    mmClosed: 3.0,
+    mmOpen: 4.0,
+    inches: '1/8"',
+    primaryUse: 'Zone de transition basse du fade, Buzz Cut très court, coupe très courte sur barbe.',
+    fadeRole: 'Crée la première bande d’ombre sombre (dark grey zone) au-dessus de la ligne claire.',
+  },
+  {
+    code: '1.5',
+    numericValue: 1.5,
+    label: 'Demi-sabot 1.5',
+    mmClosed: 4.5,
+    mmOpen: 5.5,
+    inches: '3/16"',
+    primaryUse: 'Coupe Waves 360 (sens de pousse sur texture 4B–4C) et fondu entre le #1 et le #2.',
+    fadeRole: 'Élimine la démarcation tenace entre la zone sombre (#1 ouvert) et la masse (#2).',
+  },
+  {
+    code: '2',
+    numericValue: 2,
+    label: 'Sabot #2',
+    mmClosed: 6.0,
+    mmOpen: 7.0,
+    inches: '1/4"',
+    primaryUse: 'Waves 360 sur textures 3C–4A, Caesar Cut classique, dégrossissage des côtés avant un fade.',
+    fadeRole: 'Sert souvent de longueur de référence (bulk clearing) pour préparer une toile uniforme.',
+  },
+  {
+    code: '3',
+    numericValue: 3,
+    label: 'Sabot #3',
+    mmClosed: 10.0,
+    mmOpen: 11.0,
+    inches: '3/8"',
+    primaryUse: 'Afro très court uniforme, côtés d’un Taper Fade conservant une belle densité.',
+    fadeRole: 'Transition haute vers un dessus court ou connexion douce vers la crête pariétale.',
+  },
+  {
+    code: '4',
+    numericValue: 4,
+    label: 'Sabot #4',
+    mmClosed: 13.0,
+    mmOpen: 14.0,
+    inches: '1/2"',
+    primaryUse: 'Afro court structuré (base idéale pour débuter des Sponge Twists courts).',
+    fadeRole: 'Uniformise le plateau supérieur sur un afro court ou connecte les côtés pleins.',
+  },
+  {
+    code: '5',
+    numericValue: 5,
+    label: 'Sabot #5',
+    mmClosed: 16.0,
+    mmOpen: 17.0,
+    inches: '5/8"',
+    primaryUse: 'Dessus afro court-moyen dense et équilibré.',
+    fadeRole: 'Maintient un volume fourni tout en contrôlant les mèches rebelles.',
+  },
+  {
+    code: '6',
+    numericValue: 6,
+    label: 'Sabot #6',
+    mmClosed: 19.0,
+    mmOpen: 20.0,
+    inches: '3/4"',
+    primaryUse: 'Afro court confortable, base de French Crop texturisé.',
+    fadeRole: 'Hauteur moyenne sur le dessus nécessitant un peignage préalable rigoureux.',
+  },
+  {
+    code: '7',
+    numericValue: 7,
+    label: 'Sabot #7',
+    mmClosed: 22.0,
+    mmOpen: 23.0,
+    inches: '7/8"',
+    primaryUse: 'Afro moyen homogène sur textures 3B à 4B bien démêlées.',
+    fadeRole: 'Travail de volume supérieur ; au-delà de #6 sur 4C, le freehand devient souvent plus précis.',
+  },
+  {
+    code: '8',
+    numericValue: 8,
+    label: 'Sabot #8',
+    mmClosed: 25.0,
+    mmOpen: 26.0,
+    inches: '1"',
+    primaryUse: 'Longueur maximale standard à la tondeuse (2,5 cm) pour égaliser un afro fourni.',
+    fadeRole: 'Gabarit de hauteur supérieure avant finition aux ciseaux ou à main levée.',
+  },
+];

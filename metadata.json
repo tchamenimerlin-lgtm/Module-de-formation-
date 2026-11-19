@@ -1,0 +1,8 @@
+{
+  "name": "NOTORIOUS BARBER ACADEMY",
+  "description": "Plateforme pédagogique complète et manuel professionnel dédié à l'apprentissage de la coiffure masculine afro (Afro Barbering), du niveau débutant au niveau avancé.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
